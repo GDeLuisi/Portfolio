@@ -12,13 +12,7 @@ export default [
 			{
 				path: "/",
 				name: "homeview",
-				component: () =>
-					defineAsyncComponent({
-						loader: () => import("../view/homeView.vue"),
-						loadingComponent: loadingViewVue,
-						timeout: 5000,
-						suspensible: false,
-					}),
+				component: () => import("../view/homeView.vue"),
 			},
 		],
 	},

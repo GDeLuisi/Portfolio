@@ -3,7 +3,7 @@
 		class="flex flex-col items-center justify-around gap-2 h-full"
 		@keyup.enter="
 			() => {
-				if (!disabled) waitForLogin();
+				if (!disabled) waitForRegistration();
 			}
 		">
 		<h1

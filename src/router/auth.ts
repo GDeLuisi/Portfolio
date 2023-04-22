@@ -87,11 +87,11 @@ export function baseRequest(
 	auth?: { username: string; password: string },
 	progressCallback?: (progressEvent: AxiosProgressEvent) => void
 ): Promise<AxiosResponse> {
-	const head = {};
+	const head: any = { Authorization: "" };
 	if (!auth) {
 		head["Authorization"] = `bearer ${userStore().getToken()}`;
 	}
-	for (var field in headers) head[field] = headers[field];
+	for (var field in headers) head[field] = (headers as any)[field as string];
 	return axios
 		.request({
 			method: method,
