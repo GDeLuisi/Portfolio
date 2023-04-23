@@ -1,9 +1,7 @@
 <template>
 	<div class="max-w-max max-h-max self-center justify-self-center p-4">
 		<slot>
-			<Icon
-				icon="mdi-loading"
-				class="animate-spin text-5xl font-bold"></Icon>
+			<span class="icon-[mdi--loading]"></span>
 		</slot>
 	</div>
 </template>

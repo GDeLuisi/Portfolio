@@ -6,14 +6,14 @@
 			<template #actionsLeft>
 				<IconButton
 					class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
-					icon="mdi-logout"
+					icon="icon-[mdi--logout]"
 					@click="logout"
 					@touchstart="logout"></IconButton>
 			</template>
 			<template #actionsRight>
 				<IconButton
 					class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
-					icon="mdi-menu"
+					icon="icon-[mdi--menu]"
 					@click="() => (sidebar = !sidebar)"></IconButton> </template
 		></NavBar>
 		<div v-if="sidebar">sidebar</div>

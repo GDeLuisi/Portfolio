@@ -14,7 +14,7 @@
 				>
 				<input
 					id="privateDoc"
-					class="mx-4 self-baseline accent-green-400 cursor-pointer h-4 w-4"
+					class="mx-4 self-baseline mt-2 accent-green-400 cursor-pointer h-4 w-4"
 					type="checkbox"
 					v-model="privDoc" />
 			</div>

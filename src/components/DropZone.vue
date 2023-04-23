@@ -7,10 +7,9 @@
 		@dragexit.prevent="toggleActive"
 		@dragover.prevent=""
 		@drop.prevent="toggleActive">
-		<Icon
-			icon="mdi-file"
-			class="text-center text-4xl text-green-400 group-hover:animate-pulse"
-			:class="active ? ' text-white' : ''"></Icon>
+		<span
+			class="text-center text-4xl text-green-400 group-hover:animate-pulse icon-[mdi--file]"
+			:class="active ? ' text-white' : ''"></span>
 		<h1 class="font-bold justify-self-center text-md sm:text-xl">
 			Drag and Drop your file
 		</h1>

@@ -23,11 +23,12 @@
 				}
 			"
 			class="hover:text-green-600 transition-all absolute left-full bottom-1/4"
-			:icon="iconActive ? appendIconAfter : appendIcon"></IconButton>
+			:icon="appendIcon"
+			:icon-change="appendIconAfter"></IconButton>
 	</div>
 </template>
 <script setup lang="ts">
-	import { Icon } from "@iconify/vue";
+	import { Icon } from "@iconify/vue/dist/offline";
 	import IconButton from "./IconButton.vue";
 	const prop = defineProps({
 		modelValue: {

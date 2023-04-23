@@ -23,8 +23,8 @@
 					visible = !visible;
 				}
 			"
-			append-icon="mdi-eye-off-outline"
-			append-icon-after="mdi-eye-outline"
+			append-icon="icon-[mdi--eye-off-outline]"
+			append-icon-after="icon-[mdi--eye-outline]"
 			placeholder="Password"
 			class="mx-auto self-center"></StyledInput>
 

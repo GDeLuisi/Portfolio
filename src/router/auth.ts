@@ -9,7 +9,8 @@ import router from ".";
 //TODO->register
 export function isLogged(): Promise<boolean> {
 	return baseRequest("auth/refreshtoken", "GET")
-		.then(() => {
+		.then((data) => {
+			userStore().setRefreshToken(data.data.accessToken);
 			return localStorage.getItem("username") != null;
 		})
 		.catch(() => {

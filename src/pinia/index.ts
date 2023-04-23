@@ -13,7 +13,7 @@ export const userStore = defineStore("store", () => {
 	}
 	function reloadStrategy() {
 		axios
-			.get(import.meta.env.VITE_API_IP + "/auth/refreshtoken", {
+			.get("/auth/refreshtoken", {
 				withCredentials: true,
 			})
 			.then((res) => {

@@ -26,9 +26,9 @@
 					">
 					<template #upperActions>
 						<div class="">
-							<Icon
+							<span
 								class="text-2xl"
-								:icon="decideIcon(element.originalname)"></Icon>
+								:class="decideIcon(element.originalname)"></span>
 						</div>
 					</template>
 					<template #default>
@@ -50,7 +50,7 @@
 						<div class="text-xl gap-3 flex justify-end flex-grow-0">
 							<IconButton
 								class="hover:scale-125 transition-all hover:text-green-400"
-								icon="mdi-download"
+								icon="icon-[mdi--download]"
 								@click="
 									() =>
 										downloadDoc(
@@ -62,7 +62,7 @@
 
 							<IconButton
 								class="hover:scale-125 transition-all hover:text-red-400"
-								icon="mdi-delete"
+								icon="icon-[mdi--delete]"
 								@click="() => deleteDoc(element)"></IconButton>
 						</div>
 					</template>
@@ -144,22 +144,22 @@
 		//console.log(ext);
 		switch (ext) {
 			case "pdf":
-				return "mdi-file-pdf-box";
+				return "icon-[mdi--file-pdf-box]";
 				break;
 			case "jpg":
-				return "mdi-image";
+				return "icon-[mdi--image]";
 				break;
 			case "png":
-				return "mdi-image";
+				return "icon-[mdi--image]";
 				break;
 			case "jpeg":
-				return "mdi-image";
+				return "icon-[mdi--image]";
 				break;
 			case "mp4":
-				return "mdi-video-vintage";
+				return "icon-[mdi--video-vintage]";
 				break;
 			default:
-				return "mdi-file";
+				return "icon-[mdi--file]";
 				break;
 		}
 	}
