@@ -1,9 +1,9 @@
 <template>
 	<h1 class="text-center font-extrabold capitalize text-3xl">
-		yout quick pick to your files
+		your quick peak to your files
 	</h1>
-	<main class="w-full flex flex-col lg:grid lg:grid-cols-3 gap-4">
-		<div class="p-8 h-3/4 self-center col-start-3 row-start-1">
+	<main class="flex flex-col lg:grid lg:grid-cols-3 gap-4">
+		<div class="p-8 self-center col-start-3 row-start-1">
 			<!-- File upload confifuration: private, group, keyword, description -->
 			<h1 class="text-xl font-bold">File upload configuration</h1>
 			<div class="my-2 flex justify-between border-b-2 border-gray-400">

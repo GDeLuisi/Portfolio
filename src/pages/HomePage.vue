@@ -1,23 +1,22 @@
 <template>
-	<main class="min-w-full min-h-full bg-alabaster-400 flex flex-col gap-4">
-		<NavBar
-			class="bg-alabaster-100 shadow-sm"
-			:title="'Welcome back ' + store.username">
-			<template #actionsLeft>
-				<IconButton
-					class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
-					icon="icon-[mdi--logout]"
-					@click="logout"
-					@touchstart="logout"></IconButton>
-			</template>
-			<template #actionsRight>
-				<IconButton
-					class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
-					icon="icon-[mdi--menu]"
-					@click="() => (sidebar = !sidebar)"></IconButton> </template
-		></NavBar>
-		<div v-if="sidebar">sidebar</div>
-
+	<NavBar
+		class="bg-alabaster-100 shadow-sm"
+		:title="'Welcome back ' + store.username">
+		<template #actionsLeft>
+			<IconButton
+				class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
+				icon="icon-[mdi--logout]"
+				@click="logout"
+				@touchstart="logout"></IconButton>
+		</template>
+		<template #actionsRight>
+			<IconButton
+				class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
+				icon="icon-[mdi--menu]"
+				@click="() => (sidebar = !sidebar)"></IconButton> </template
+	></NavBar>
+	<div v-if="sidebar">sidebar</div>
+	<main class="bg-alabaster-400 flex flex-col gap-4">
 		<router-view #default="{ Component }">
 			<Transition name="fade">
 				<component :is="Component"></component>
