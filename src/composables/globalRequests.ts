@@ -13,9 +13,9 @@ export function downloadFile(
 	const request = new XMLHttpRequest();
 	request.open(
 		"GET",
-		`${import.meta.env.VITE_API_IP}/apis/docs/download/${
-			user.username
-		}/${docId}`
+		`${
+			import.meta.env.VITE_API_IP != "/" ? import.meta.env.VITE_API_IP : ""
+		}/apis/docs/download/${user.username}/${docId}`
 	);
 	request.setRequestHeader("Authorization", `bearer ${user.getToken()}`);
 	request.responseType = "blob";

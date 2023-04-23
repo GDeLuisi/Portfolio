@@ -12,7 +12,7 @@
 			class="text-center">
 		</Icon> -->
 		<span
-			v-if="switchIcon"
+			v-if="switchIcon || !iconChange"
 			:class="prop.icon"></span>
 		<span
 			v-else-if="iconChange"
