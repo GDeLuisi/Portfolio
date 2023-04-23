@@ -16,7 +16,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				<Card
 					v-for="element in docs"
-					class="snap-start max-h-min bg-white shadow-md rounded-xl overflow-hidden hover:scale-125 hover:z-10 transition-all"
+					class="snap-start max-h-min bg-white shadow-md rounded-xl overflow-hidden sm:hover:scale-125 sm:hover:z-10 transition-all"
 					:key="element.originalname as string"
 					:title="
 						element.originalname.substring(

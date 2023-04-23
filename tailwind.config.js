@@ -1,5 +1,18 @@
 import { addDynamicIconSelectors } from "@iconify/tailwind";
 
+const icons = [
+	"mdi-home",
+	"mdi-login",
+	"mdi-logout",
+	"mdi-eye-outline",
+	"mdi-eye-off-outline",
+	"mdi-file-pdf-box",
+	"mdi-image",
+	"mdi-video-vintage",
+	"mdi-download",
+	"mdi-delete",
+];
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: [
@@ -38,5 +51,9 @@ export default {
 		},
 	},
 
-	plugins: [addDynamicIconSelectors()],
+	plugins: [
+		addDynamicIconSelectors({
+			iconSets: icons,
+		}),
+	],
 };

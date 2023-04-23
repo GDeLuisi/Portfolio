@@ -56,6 +56,14 @@
 			>Sign up</router-link
 		>
 	</div>
+	<Card
+		v-if="loading"
+		class="bg-white w-1/2 h-1/2 text-center"
+		title="Loggin in...">
+		<template #default>
+			<LoadingView></LoadingView>
+		</template>
+	</Card>
 </template>
 <script setup lang="ts">
 	import axios from "axios";
@@ -63,6 +71,8 @@
 	import { userStore } from "../pinia";
 	import StyledInput from "../components/StyledInput.vue";
 	import router from "../router";
+	import Card from "../components/card.vue";
+	import LoadingView from "./loadingView.vue";
 	const debug = ref("");
 	const username = ref("");
 	const password = ref("");
@@ -71,9 +81,12 @@
 	const visible = ref(false);
 	const userstore = userStore();
 	const disabled = ref(true);
+	const loading = ref(false);
 	async function waitForLogin() {
+		loading.value = true;
 		if (await login(username.value, password.value)) {
-			await docsSyncRequest().then(async (res) => {
+			await docsSyncRequest().then((res) => {
+				loading.value = false;
 				console.log("synced " + res.synced + " added " + res.added);
 				router.push({ name: "homeview" });
 			});

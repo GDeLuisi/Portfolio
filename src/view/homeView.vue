@@ -2,6 +2,7 @@
 	<h1 class="text-center font-extrabold capitalize text-3xl">
 		your quick peak to your files
 	</h1>
+
 	<main class="flex flex-col lg:grid lg:grid-cols-3 gap-4">
 		<div class="p-8 self-center col-start-3 row-start-1">
 			<!-- File upload confifuration: private, group, keyword, description -->
@@ -87,6 +88,7 @@
 	import loader from "../view/loadingView.vue";
 	import docView from "../components/DocsViewer.vue";
 	import DropZone from "../components/DropZone.vue";
+	import MyIcon from "../components/MyIcon.vue";
 
 	const privDoc = ref(true);
 	const singleUpload = ref(0);
