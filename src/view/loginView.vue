@@ -56,14 +56,15 @@
 			>Sign up</router-link
 		>
 	</div>
-	<Card
+	<div
 		v-if="loading"
-		class="bg-white w-1/2 h-1/2 text-center"
-		title="Loggin in...">
-		<template #default>
-			<LoadingView></LoadingView>
-		</template>
-	</Card>
+		class="w-screen h-screen flex absolute justify-center top-0 left-0 z-10 backdrop-blur-xl">
+		<div
+			class="bg-white p-4 rounded-xl flex flex-col gap-10 justify-start w-max h-max self-center">
+			<h1 class="text-2xl text-center font-extrabold">Logging in...</h1>
+			<LoadingView class="text-6xl self-center"></LoadingView>
+		</div>
+	</div>
 </template>
 <script setup lang="ts">
 	import axios from "axios";
@@ -86,10 +87,10 @@
 		loading.value = true;
 		if (await login(username.value, password.value)) {
 			await docsSyncRequest().then((res) => {
-				loading.value = false;
 				console.log("synced " + res.synced + " added " + res.added);
 				router.push({ name: "homeview" });
 			});
+			loading.value = false;
 			return router.forward();
 		} else {
 			debug.value = "errore";
