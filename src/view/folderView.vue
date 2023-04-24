@@ -1,5 +1,7 @@
 <template>
 	<h1 class="text-3xl font-extrabold capitalize text-center">your folders</h1>
+	<SearchBar v-model="search"></SearchBar>
+
 	<div
 		v-if="groups.length > 0"
 		class="grid grid-cols-2 sm:grid-cols-3 md:flex md:justify-around gap-4 m-4">
@@ -30,11 +32,13 @@
 	</div>
 </template>
 <script setup lang="ts">
+	import SearchBar from "../components/SearchBar.vue";
 	import Card from "../components/card.vue";
 	import { baseRequest } from "../router/auth";
 	import LoadingView from "./loadingView.vue";
 	const router = useRouter();
 	const groups = ref([] as any[]);
+	const search = ref("");
 
 	baseRequest("/apis/docs/groups", "GET")
 		.then((res) => {

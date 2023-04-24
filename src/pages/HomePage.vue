@@ -12,8 +12,7 @@
 		<template #actionsRight>
 			<IconButton
 				class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
-				icon="icon-[mdi--menu]"
-				iconChange="icon-[mdi--close]"
+				:icon="sidebar ? 'icon-[mdi--close]' : 'icon-[mdi--menu]'"
 				@click="() => (sidebar = !sidebar)"></IconButton> </template
 	></NavBar>
 	<SideBar
@@ -24,6 +23,7 @@
 				sidebar = !sidebar;
 			}
 		">
+		<template #icon> <p class="font-bold">Select a function</p></template>
 		<template #default>
 			<router-link :to="{ name: 'homeview' }">
 				<li
@@ -52,7 +52,7 @@
 			</router-link>
 		</template>
 	</SideBar>
-	<main class="bg-alabaster-400 flex flex-col gap-4">
+	<main class="bg-alabaster-400 min-h-screen flex flex-col gap-4">
 		<router-view #default="{ Component }">
 			<component :is="Component"></component>
 		</router-view>
