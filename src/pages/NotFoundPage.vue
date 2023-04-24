@@ -15,7 +15,7 @@
 	const router = useRouter();
 
 	function backHome() {
-		router.push({ name: "home" });
+		router.push({ name: "homeview" });
 		router.forward();
 	}
 </script>

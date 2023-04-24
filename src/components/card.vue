@@ -1,5 +1,5 @@
 <template>
-	<main class="p-4 flex flex-col w-full">
+	<main class="p-4 flex flex-col">
 		<div class="flex justify-between row-start-1">
 			<h1
 				v-if="title"

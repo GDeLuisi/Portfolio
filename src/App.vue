@@ -13,9 +13,7 @@
 
 <template>
 	<router-view #default="{ Component }">
-		<transition name="fade">
-			<component :is="Component"></component>
-		</transition>
+		<component :is="Component"></component>
 	</router-view>
 </template>
 

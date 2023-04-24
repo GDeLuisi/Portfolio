@@ -14,6 +14,26 @@ export default [
 				name: "homeview",
 				component: () => import("../view/homeView.vue"),
 			},
+			{
+				path: "/folders",
+				name: "folders",
+				component: () => import("../view/folderView.vue"),
+			},
+			{
+				path: "/search",
+				name: "search",
+				component: () => import("../view/homeView.vue"),
+			},
+			{
+				path: "/addfiles",
+				name: "addfiles",
+				component: () => import("../view/homeView.vue"),
+			},
+			{
+				path: "/folders/:fname",
+				name: "folder",
+				component: () => import("../view/singleFolderView.vue"),
+			},
 		],
 	},
 	{
