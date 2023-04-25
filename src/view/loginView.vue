@@ -86,10 +86,11 @@
 	async function waitForLogin() {
 		loading.value = true;
 		if (await login(username.value, password.value)) {
-			await docsSyncRequest().then((res) => {
-				console.log("synced " + res.synced + " added " + res.added);
-				router.push({ name: "homeview" });
-			});
+			// await docsSyncRequest().then((res) => {
+			// 	console.log("synced " + res.synced + " added " + res.added);
+
+			// });Deprecated for now, need to re-do the api
+			router.push({ name: "homeview" });
 			loading.value = false;
 			return router.forward();
 		} else {

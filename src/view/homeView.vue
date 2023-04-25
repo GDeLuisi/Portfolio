@@ -88,7 +88,6 @@
 	import loader from "../view/loadingView.vue";
 	import docView from "../components/DocsViewer.vue";
 	import DropZone from "../components/DropZone.vue";
-	import MyIcon from "../components/MyIcon.vue";
 
 	const privDoc = ref(true);
 	const singleUpload = ref(0);

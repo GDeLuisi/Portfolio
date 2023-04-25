@@ -1,6 +1,5 @@
 <template>
 	<h1 class="text-3xl font-extrabold capitalize text-center">your folders</h1>
-	<SearchBar v-model="search"></SearchBar>
 
 	<div
 		v-if="groups.length > 0"
@@ -38,7 +37,6 @@
 	import LoadingView from "./loadingView.vue";
 	const router = useRouter();
 	const groups = ref([] as any[]);
-	const search = ref("");
 
 	baseRequest("/apis/docs/groups", "GET")
 		.then((res) => {

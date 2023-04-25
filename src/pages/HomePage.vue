@@ -16,7 +16,7 @@
 				@click="() => (sidebar = !sidebar)"></IconButton> </template
 	></NavBar>
 	<SideBar
-		class="bg-white px-4 py-8 max-w-[20ch] rounded-tr-xl shadow-lg rounded-br-xl"
+		class="bg-white px-4 py-8 max-w-[20ch] rounded-tr-xl shadow-lg rounded-br-xl fixed"
 		:class="sidebar ? 'left-0' : '-left-1/2'"
 		@click="
 			() => {

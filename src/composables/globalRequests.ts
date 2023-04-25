@@ -18,21 +18,42 @@ export function downloadFile(
 		}/apis/docs/download/${user.username}/${docId}`
 	);
 	request.setRequestHeader("Authorization", `bearer ${user.getToken()}`);
-	request.responseType = "blob";
 	if (cb != undefined) request.addEventListener("progress", cb);
+	// var hasTouchScreen = false;
+	// //should check if it's a mobile
+	// if ("maxTouchPoints" in navigator) {
+	// 	hasTouchScreen = navigator.maxTouchPoints > 0;
+	// }
+
+	request.responseType = "blob";
+
 	request.onreadystatechange = () => {
 		if (request.readyState == 4) {
 			const res = request.response;
-			const url = window.URL.createObjectURL(new Blob([res]));
+			//console.log(res);
+
+			const url = window.URL.createObjectURL(
+				new Blob([res], { type: res.type })
+			);
+
 			const link = document.createElement("a");
 			link.href = url;
 			link.setAttribute("download", desiredFilename);
 			document.body.appendChild(link);
 			link.click();
-			link.remove();
-			window.URL.revokeObjectURL(url);
+			setTimeout(() => {
+				link.remove();
+				window.URL.revokeObjectURL(url);
+			}, 200);
+
+			// var wnd: Window | null;
+			// wnd = window.open(url, "_blank");
+			// setTimeout(() => {
+			// 	wnd!.document.title = desiredFilename;
+			// }, 10);
 		}
 	};
+
 	request.send();
 }
 

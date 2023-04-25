@@ -6,7 +6,7 @@
 					class=""
 					:url="
 						param == 'public'
-							? 'apis/docs/public'
+							? 'apis/docs/publics'
 							: `/apis/docs/${userStore().username}?group=${param}`
 					" />
 			</template>
