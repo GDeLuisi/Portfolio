@@ -2,3 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+.loader {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+	0% {
+		box-shadow: -72px 0 #ff3d00 inset;
+	}
+	100% {
+		box-shadow: 48px 0 #ff3d00 inset;
+	}
+}
+
+.progressBar {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: filling 2s alternate infinite;
+}
+
+@keyframes filling {
+	0% {
+		box-shadow: 0px 0px 0px 2px #ff3d00 inset;
+	}
+	100% {
+		box-shadow: 0px 0px 0px 22px #ff3d00 inset;
+	}
+}
+
+@keyframes passingball {
+	0% {
+		box-shadow: -72px 0px 0px 9px #ff3d00 inset;
+	}
+	100% {
+		box-shadow: 48px 0px 0px 9px #ff3d00 inset;
+	}
+}
+progress {
+	overflow: hidden;
+}
+::-webkit-progress-bar {
+	overflow: hidden;
+	border-radius: 10px;
+	border-left: #ff3d00 solid 1px;
+	border-right: #00d503 solid 1px;
+
+	background: #ffffff;
+}
+
+::-webkit-progress-value {
+	border-radius: 20px;
+	background: linear-gradient(90deg, #ff3d00, #00d503);
+}

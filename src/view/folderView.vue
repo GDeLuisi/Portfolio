@@ -20,12 +20,12 @@
 	<div
 		v-else
 		class="flex justify-center">
-		<Card class="bg-gray-200 text-center rounded-lg">
+		<Card class="bg-white text-center rounded-lg">
 			<template #default>
 				<p class="font-bold text-2xl">Loading...</p>
 			</template>
 			<template #actions>
-				<LoadingView class="text-6xl font-bold"></LoadingView>
+				<LoadingView></LoadingView>
 			</template>
 		</Card>
 	</div>

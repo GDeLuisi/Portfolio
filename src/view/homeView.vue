@@ -77,7 +77,14 @@
 					:key="reload" />
 			</template>
 			<template #fallback>
-				<loader></loader>
+				<Card class="bg-white h-40 w-40 text-center items-center rounded-lg">
+					<template #default>
+						<p class="font-bold text-2xl">Loading...</p>
+					</template>
+					<template #actions>
+						<LoadingView></LoadingView>
+					</template>
+				</Card>
 			</template>
 		</Suspense>
 	</main>
@@ -85,9 +92,10 @@
 
 <script setup lang="ts">
 	import { baseRequest } from "../router/auth";
-	import loader from "../view/loadingView.vue";
+	import LoadingView from "./loadingView.vue";
 	import docView from "../components/DocsViewer.vue";
 	import DropZone from "../components/DropZone.vue";
+	import Card from "../components/card.vue";
 
 	const privDoc = ref(true);
 	const singleUpload = ref(0);

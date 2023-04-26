@@ -60,9 +60,9 @@
 		v-if="loading"
 		class="w-screen h-screen flex absolute justify-center top-0 left-0 z-10 backdrop-blur-xl">
 		<div
-			class="bg-white p-4 rounded-xl flex flex-col gap-10 justify-start w-max h-max self-center">
+			class="bg-white items-center p-4 rounded-xl flex flex-col gap-10 justify-start w-max h-max self-center">
 			<h1 class="text-2xl text-center font-extrabold">Logging in...</h1>
-			<LoadingView class="text-6xl self-center"></LoadingView>
+			<LoadingView></LoadingView>
 		</div>
 	</div>
 </template>

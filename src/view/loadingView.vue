@@ -1,7 +1,7 @@
 <template>
-	<div class="max-w-max max-h-max self-center justify-self-center p-4">
+	<div class="max-w-max max-h-max items-center flex justify-center p-4">
 		<slot>
-			<span class="icon-[mdi--loading] animate-spin"></span>
+			<span class="loader"></span>
 		</slot>
 	</div>
 </template>

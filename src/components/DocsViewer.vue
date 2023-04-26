@@ -15,7 +15,7 @@
 		<template #default>
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				<Card
-					v-for="element in docs"
+					v-for="(element, index) in docs"
 					class="snap-start max-h-min bg-white shadow-md rounded-xl overflow-hidden sm:hover:scale-125 sm:hover:z-10 transition-all"
 					:key="element.originalname as string"
 					:title="
@@ -48,16 +48,24 @@
 					</template>
 					<template #actions>
 						<div class="text-xl gap-3 flex justify-end flex-grow-0">
+							<div v-if="downloadPerc[index] > 0">
+								<label
+									for="dprogress"
+									class="font-light text-xs"
+									>Download completed at:
+									{{ Math.round(downloadPerc[index]) }}%</label
+								>
+								<progress
+									id="dprogress"
+									min="0"
+									max="100"
+									:value="downloadPerc[index]"></progress>
+							</div>
 							<IconButton
 								class="hover:scale-125 transition-all hover:text-green-400"
 								icon="icon-[mdi--download]"
 								@click="
-									() =>
-										downloadDoc(
-											element.id,
-											element.private,
-											element.originalname
-										)
+									() => downloadDoc(element.id, index, element.originalname)
 								"></IconButton>
 
 							<IconButton
@@ -95,7 +103,7 @@
 	const store = userStore();
 	const docs = ref(new Set<any>());
 	const remNum = ref(0);
-
+	const downloadPerc = ref([] as number[]);
 	const prop = defineProps({
 		url: {
 			type: String,
@@ -131,11 +139,12 @@
 				console.log("error");
 			});
 	}
-	function downloadDoc(id: string, privDoc: boolean, filename: string) {
-		downloadFile(id, privDoc, filename, (load) => {
+	function downloadDoc(id: string, index: number, filename: string) {
+		downloadFile(id, true, filename, (load) => {
 			if (load.lengthComputable) {
 				var percentage = (load.loaded / load.total) * 100;
-				console.log(percentage);
+				downloadPerc.value[index] = percentage;
+				if (percentage == 100) downloadPerc.value[index] = 0;
 			}
 		});
 	}
@@ -178,4 +187,7 @@
 			)
 		).data;
 	}
+	watch(docs, () => {
+		downloadPerc.value = new Array(docs.value.size).fill(0);
+	});
 </script>
