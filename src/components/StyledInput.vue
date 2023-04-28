@@ -22,7 +22,7 @@
 					emit('iconClick');
 				}
 			"
-			class="hover:text-green-600 transition-all absolute left-full bottom-1/4"
+			class="hover:text-green-600 transition-all absolute left-full bottom-0"
 			:icon="appendIcon"
 			:icon-change="appendIconAfter"></IconButton>
 	</div>

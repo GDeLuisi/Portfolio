@@ -39,14 +39,17 @@ export default {
 				},
 			},
 			keyframes: {
-				linear: {
+				animloader: {
+					"0%": {
+						"box-shadow": "-72px 0 #000 inset",
+					},
 					"100%": {
-						transform: "translate-x-full",
+						"box-shadow": "48px 0 #000 inset",
 					},
 				},
 			},
 			animation: {
-				linear: "linear infinite",
+				moveShadow: "animloader 1s ease-in-out infinite",
 			},
 		},
 	},

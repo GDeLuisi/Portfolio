@@ -1,20 +1,17 @@
 <template>
 	<div
-		class="flex flex-col items-center justify-around gap-2 h-full"
+		class="bg-green-100 rounded-xl flex flex-col gap-8 lg:gap-10 xl:gap-12 min-w-[200px] lg:min-w-[400px] xl:min-w-[1000px] p-8 items-center"
 		@keyup.enter="
 			() => {
 				if (!disabled) waitForLogin();
 			}
 		">
-		<h1
-			class="font-black font-sans self-center text-3xl justify-start text-center">
-			Login
-		</h1>
+		<h1 class="font-black font-sans text-3xl text-center my-4">Login</h1>
 		<StyledInput
 			type="text"
 			placeholder="Username"
 			v-model="username"
-			class="self-center mx-auto bg-transparent"></StyledInput>
+			class="bg-transparent"></StyledInput>
 		<StyledInput
 			:type="visible ? 'text' : 'password'"
 			v-model="password"
@@ -26,35 +23,39 @@
 			append-icon="icon-[mdi--eye-off-outline]"
 			append-icon-after="icon-[mdi--eye-outline]"
 			placeholder="Password"
-			class="mx-auto self-center"></StyledInput>
+			class="bg-transparent"></StyledInput>
 
-		<button
-			@click="
-				async () => {
-					await waitForLogin();
-				}
-			"
-			@touchstart="
-				async () => {
-					touch = true;
+		<div class="flex-col flex items-center">
+			<button
+				@click="
+					async () => {
+						await waitForLogin();
+					}
+				"
+				@touchstart="
+					async () => {
+						touch = true;
+						await waitForLogin();
+					}
+				"
+				:class="
+					disabled
+						? 'opacity-70 rounded-lg mx-auto font-extrabold text-lg px-4 py-2 capitalize relative '
+						: 'rounded-lg mx-auto font-extrabold text-lg px-4 py-2 capitalize relative after:absolute after:bottom-1 after:h-1 after:w-full after:right-full after:bg-indigo-400 hover:after:translate-x-full after:transition after:duration-300 overflow-hidden'
+				"
+				:disabled="disabled">
+				log in
+			</button>
 
-					await waitForLogin();
-				}
-			"
-			:class="
-				disabled
-					? 'opacity-70 rounded-lg mx-auto font-extrabold text-lg px-4 py-2 capitalize relative '
-					: 'rounded-lg mx-auto font-extrabold text-lg px-4 py-2 capitalize relative after:absolute after:bottom-1 after:h-1 after:w-full after:right-full after:bg-indigo-400 hover:after:translate-x-full after:transition after:duration-300 overflow-hidden'
-			"
-			:disabled="disabled">
-			log in
-		</button>
-		<!-- {{ touch }}{{ username }} {{ password }}{{ debug }} -->
-		<router-link
-			:to="{ name: 'register' }"
-			class="capitalize text-xs -mt-12 text-blue-400 font-medium"
-			>Sign up</router-link
-		>
+			<!-- {{ touch }}{{ username }} {{ password }}{{ debug }} -->
+			<div class="">
+				<router-link
+					:to="{ name: 'register' }"
+					class="capitalize text-cente text-xs text-blue-400 font-medium"
+					>Sign up</router-link
+				>
+			</div>
+		</div>
 	</div>
 	<div
 		v-if="loading"

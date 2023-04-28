@@ -1,6 +1,6 @@
 <template>
 	<NavBar
-		class="bg-alabaster-100 shadow-sm"
+		class="shadow-sm"
 		:title="'Welcome back ' + store.username">
 		<template #actionsLeft>
 			<IconButton

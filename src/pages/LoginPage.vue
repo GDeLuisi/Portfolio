@@ -1,15 +1,8 @@
 <template>
-	<main
-		class="h-screen overflow-hidden bg-gradient-to-b origin-top from-green-500 via-green-400 to-slate-300 flex flex-col justify-start">
-		<NavBar
-			title="Your Document Manager"
-			class="shadow-md bg-white max-h-max">
-		</NavBar>
+	<main class="backgradient min-h-screen grid place-items-center">
 		<!-- Try to center it -->
-		<div
-			class="h-3/4 px-8 md:w-1/3 mt-8 self-center bg-wave bg-cover rounded-xl overflow-hidden shadow-md">
-			<router-view></router-view>
-		</div>
+
+		<router-view></router-view>
 	</main>
 </template>
 <script setup lang="ts">
@@ -18,3 +11,19 @@
 	import Card from "../components/card.vue";
 	import LoginView from "../view/loginView.vue";
 </script>
+
+<style lang="css">
+	.backgradient {
+		background: #11998e; /* fallback for old browsers */
+		background: -webkit-linear-gradient(
+			to right,
+			#38ef7d,
+			#11998e
+		); /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(
+			to right,
+			#38ef7d,
+			#11998e
+		); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	}
+</style>

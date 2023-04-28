@@ -1,7 +1,7 @@
 <template>
 	<div class="max-w-max max-h-max items-center flex justify-center p-4">
 		<slot>
-			<span class="loader"></span>
+			<span class="loader animate-moveShadow"></span>
 		</slot>
 	</div>
 </template>
