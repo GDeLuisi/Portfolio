@@ -1,75 +1,19 @@
 <template>
-	<h1 class="text-center font-extrabold capitalize text-3xl">
-		your quick peak to your files
-	</h1>
-
-	<main class="flex flex-col lg:grid lg:grid-cols-3 gap-4">
-		<div class="p-8 self-center col-start-3 row-start-1">
-			<!-- File upload confifuration: private, group, keyword, description -->
-			<h1 class="text-xl font-bold">File upload configuration</h1>
-			<div class="my-2 flex justify-between border-b-2 border-gray-400">
-				<label
-					for="privateDoc"
-					class="text-lg font-semibold"
-					>Private directory</label
-				>
-				<input
-					id="privateDoc"
-					class="mx-4 self-baseline mt-2 accent-green-400 cursor-pointer h-4 w-4"
-					type="checkbox"
-					v-model="privDoc" />
-			</div>
-			<div class="my-2 border-b-2 py-1 flex justify-between border-gray-400">
-				<label
-					for="group"
-					class="text-lg font-semibold"
-					>Group</label
-				>
-				<input
-					id="group"
-					class="mx-4 self-baseline"
-					type="text"
-					v-model="group" />
-			</div>
-			<div class="my-2 border-b-2 flex justify-between py-1 border-gray-400">
-				<label
-					for="keyword"
-					class="text-lg capitalize font-semibold"
-					>keyword</label
-				>
-				<input
-					id="keyword"
-					class="mx-4 self-baseline"
-					type="text"
-					v-model="keyword" />
-			</div>
-			<div class="my-2 border-b-2 py-1 flex justify-between border-gray-400">
-				<label
-					for="description"
-					class="text-lg capitalize font-semibold"
-					>description</label
-				>
-				<input
-					id="description"
-					class="mx-4 self-baseline"
-					type="text"
-					v-model="description" />
-			</div>
-
-			<DropZone
-				@change="select"
-				@drop="drop"
-				:loading="singleUpload > 1 && singleUpload < 100"
-				class="border-dashed w-3/4 mx-auto border-green-400 rounded-xl p-4 self-center">
-				<template #loading>
-					<div class="w-full bg-gray-300 rounded-xl h-4">
-						<div
-							class="bg-green-400 rounded-xl h-4"
-							:style="`width:${Math.round(singleUpload)}%;`"></div>
-					</div>
-				</template>
-			</DropZone>
+	<main class="grid sm:grid-cols-3 gap-4 px-4">
+		<div class="bg-darkblueish-800 text-white sm:col-span-3">
+			table with last login download/upload
 		</div>
+		<FlippingCard
+			class="sm:col-span-2 sm:row-span-2 text-white"
+			frontground="rgb(8 43 59)"
+			background="rgb(8 43 59)">
+			<template #titlefront>
+				<h1>chart with per-type memory occupation</h1>
+			</template>
+			<template #titleback> More infos about files </template></FlippingCard
+		>
+	</main>
+	<!-- <main class="flex flex-col lg:grid lg:grid-cols-3 gap-4">
 		<Suspense>
 			<template #default>
 				<docView
@@ -87,7 +31,7 @@
 				</Card>
 			</template>
 		</Suspense>
-	</main>
+	</main> -->
 </template>
 
 <script setup lang="ts">
@@ -96,6 +40,7 @@
 	import docView from "../components/DocsViewer.vue";
 	import DropZone from "../components/DropZone.vue";
 	import Card from "../components/card.vue";
+	import FlippingCard from "../components/flippingCard.vue";
 
 	const privDoc = ref(true);
 	const singleUpload = ref(0);

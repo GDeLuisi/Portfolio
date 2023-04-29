@@ -3,7 +3,7 @@
 		<div
 			class="card"
 			:switchside="switchside">
-			<div class="absolute z-10 right-4 top-4">
+			<div class="absolute z-10 right-2 top-2">
 				<slot name="switcher">
 					<label class="switch">
 						<input
@@ -27,7 +27,7 @@
 				class="card__back"
 				:style="`background-color:${prop.background};`">
 				<div class="title">
-					<slot name="titleback"></slot>
+					<slot name="titleback">back</slot>
 				</div>
 				<main>
 					<slot name="mainContentBack"></slot>
@@ -77,7 +77,7 @@
 		bottom: 0;
 		left: 0;
 		right: 0;
-		padding: 2rem;
+		padding: 1.5rem;
 		min-height: max-content;
 		transform-style: preserve-3d;
 		backface-visibility: hidden;

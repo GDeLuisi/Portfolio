@@ -1,22 +1,23 @@
 <template>
 	<NavBar
-		class="min-w-full"
+		class="sm:fixed relative min-w-full text-beige-400 bg-darkblueish-900 z-50"
 		:title="'Welcome back ' + store.username">
 		<template #actionsLeft>
 			<IconButton
-				class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
+				class="text-lg sm:text-xl rounded-xl p-2 hover:text-red-500 focus-visible:text-red-500 transition duration-300"
 				icon="icon-[mdi--logout]"
 				@click="logout"
 				@touchstart="logout"></IconButton>
 		</template>
 		<template #actionsRight>
 			<IconButton
-				class="text-lg sm:text-xl rounded-xl p-2 hover:bg-gray-200 transition duration-300"
+				class="text-lg sm:text-xl rounded-xl p-2 hover:text-lightblue-600 focus-visible:text-lightblue-600 transition duration-300"
 				:icon="sidebar ? 'icon-[mdi--close]' : 'icon-[mdi--menu]'"
 				@click="() => (sidebar = !sidebar)"></IconButton> </template
 	></NavBar>
+	<!-- to redo -->
 	<SideBar
-		class="bg-white px-4 py-8 max-w-[20ch] rounded-tr-xl shadow-lg rounded-br-xl fixed"
+		class="bg-darkblueish-900 text-beige-400 px-4 py-8 max-w-[20ch] rounded-tr-xl shadow-lg rounded-br-xl fixed"
 		:class="sidebar ? 'left-0' : '-left-1/2'"
 		@click="
 			() => {
@@ -52,21 +53,12 @@
 			</router-link>
 		</template>
 	</SideBar>
-	<main class="grid place-items-center h-screen">
-		<FlippingCard
-			class="w-[200px] sm:w-[400px]"
-			frontground="orangered"
-			background="green">
-			<template #titlefront>
-				<h1 class="font-bold text-lg">Title test</h1>
-			</template></FlippingCard
-		>
-	</main>
-	<!-- <main class="bg-alabaster-400 min-h-screen flex flex-col gap-4">
+
+	<main class="bg-darkblueish-900 min-h-screen flex flex-col gap-4 sm:pt-16">
 		<router-view #default="{ Component }">
 			<component :is="Component"></component>
 		</router-view>
-	</main> -->
+	</main>
 </template>
 <script setup lang="ts">
 	import IconButton from "../components/IconButton.vue";
