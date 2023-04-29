@@ -1,6 +1,6 @@
 <template>
 	<NavBar
-		class="shadow-sm"
+		class="min-w-full"
 		:title="'Welcome back ' + store.username">
 		<template #actionsLeft>
 			<IconButton
@@ -52,16 +52,27 @@
 			</router-link>
 		</template>
 	</SideBar>
-	<main class="bg-alabaster-400 min-h-screen flex flex-col gap-4">
+	<main class="grid place-items-center h-screen">
+		<FlippingCard
+			class="w-[200px] sm:w-[400px]"
+			frontground="orangered"
+			background="green">
+			<template #titlefront>
+				<h1 class="font-bold text-lg">Title test</h1>
+			</template></FlippingCard
+		>
+	</main>
+	<!-- <main class="bg-alabaster-400 min-h-screen flex flex-col gap-4">
 		<router-view #default="{ Component }">
 			<component :is="Component"></component>
 		</router-view>
-	</main>
+	</main> -->
 </template>
 <script setup lang="ts">
 	import IconButton from "../components/IconButton.vue";
 	import NavBar from "../components/NavBar.vue";
 	import SideBar from "../components/SideBar.vue";
+	import FlippingCard from "../components/flippingCard.vue";
 	import { userStore } from "../pinia";
 	import { logout } from "../router/auth";
 	import LoadingView from "../view/loadingView.vue";

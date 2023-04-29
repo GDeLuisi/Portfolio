@@ -24,6 +24,7 @@ export default {
 		extend: {
 			backgroundImage: {
 				wave: "url('../wave.svg')",
+				loginbg: "url('../loginbg.png')",
 			},
 			colors: {
 				alabaster: {

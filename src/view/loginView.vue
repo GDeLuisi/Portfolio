@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="bg-green-100 rounded-xl flex flex-col gap-8 lg:gap-10 xl:gap-12 min-w-[200px] lg:min-w-[400px] xl:min-w-[1000px] p-8 items-center"
+		class="bg-white rounded-xl flex flex-col gap-8 lg:gap-10 xl:gap-12 min-w-[200px] lg:min-w-[400px] xl:min-w-[1000px] p-8 items-center"
 		@keyup.enter="
 			() => {
 				if (!disabled) waitForLogin();

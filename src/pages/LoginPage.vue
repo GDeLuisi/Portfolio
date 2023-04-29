@@ -1,5 +1,5 @@
 <template>
-	<main class="backgradient min-h-screen grid place-items-center">
+	<main class="bg-loginbg min-h-screen grid place-items-center">
 		<!-- Try to center it -->
 
 		<router-view></router-view>

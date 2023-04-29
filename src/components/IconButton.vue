@@ -1,7 +1,7 @@
 <template>
 	<button
 		type="button"
-		class="group/tooltip self-center"
+		class="group/tooltip"
 		@click="
 			() => {
 				switchIcon = !switchIcon;
